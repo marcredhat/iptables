@@ -1,9 +1,10 @@
 ```
+#test rule sudo iptables -A INPUT -s 1.1.1.1 -j DROP
 sudo iptables -S |grep DROP| sed 's/-A/-D/' >rules  # -A becomes -D: delete
 
 #vi rules  # check that everything is correct
 
-cat rules | while read line; do iptables $line; done
+cat rules | while read line; do sudo iptables $line; done
 
 
 iptables-save | awk '/^[*]/ { print $1 }
