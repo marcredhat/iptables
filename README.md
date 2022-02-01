@@ -1,3 +1,5 @@
+iptables visualisation: https://github.com/Nudin/iptable_vis
+
 ```
 #test rule sudo iptables -A INPUT -s 1.1.1.1 -j DROP
 sudo iptables -S |grep DROP| sed 's/-A/-D/' >rules  # -A becomes -D: delete
